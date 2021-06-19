@@ -14039,9 +14039,9 @@
               offset = Math.max(0, fullPathWidth - textFullWidth);
           }
           const startOffset = this.startOffset();
-          if (startOffset) {
-              offset += startOffset / 100 * fullPathWidth;
-          }
+          // if(startOffset) {
+          offset -= startOffset / 100 * fullPathWidth;
+          // }
           var charArr = stringToArray(this.text());
           var spacesNumber = this.text().split(' ').length - 1;
           var p0, p1, pathCmd;
