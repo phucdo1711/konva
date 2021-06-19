@@ -8,7 +8,7 @@
    * Konva JavaScript Framework v8.0.4
    * http://konvajs.org/
    * Licensed under the MIT
-   * Date: Tue Jun 08 2021
+   * Date: Sat Jun 19 2021
    *
    * Original work Copyright (C) 2011 - 2013 by Eric Rowell (KineticJS)
    * Modified work Copyright (C) 2014 - present by Anton Lavrenov (Konva)
@@ -14038,6 +14038,7 @@
           if (align === 'right') {
               offset = Math.max(0, fullPathWidth - textFullWidth);
           }
+          offset += this.startOffset();
           var charArr = stringToArray(this.text());
           var spacesNumber = this.text().split(' ').length - 1;
           var p0, p1, pathCmd;
@@ -14426,6 +14427,21 @@
    * });
    */
   Factory.addGetterSetter(TextPath, 'kerningFunc', null);
+  /**
+   * get/set kerning function.
+   * @name Konva.TextPath#startOffset
+   * @method
+   * @param {Number} startOffset
+   * @returns {Number}
+   * @example
+   * // get get startOffset
+   * // get line height
+   * var startOffset = shape.startOffset();
+   *
+   * // set the line height
+   * shape.startOffset(2);
+   */
+  Factory.addGetterSetter(TextPath, 'startOffset', 0, getNumberValidator());
 
   var EVENTS_NAME = 'tr-konva';
   var ATTR_CHANGE_LIST = [
