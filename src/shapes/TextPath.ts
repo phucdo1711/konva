@@ -15,6 +15,7 @@ export interface TextPathConfig extends ShapeConfig {
   fontSize?: number;
   fontStyle?: string;
   letterSpacing?: number;
+  startOffset?: number;
 }
 
 var EMPTY_STRING = '',
@@ -240,6 +241,7 @@ export class TextPath extends Shape<TextPathConfig> {
     if (align === 'right') {
       offset = Math.max(0, fullPathWidth - textFullWidth);
     }
+    offset += this.startOffset();
 
     var charArr = stringToArray(this.text());
     var spacesNumber = this.text().split(' ').length - 1;
@@ -540,6 +542,7 @@ export class TextPath extends Shape<TextPathConfig> {
   fontVariant: GetSet<string, this>;
   align: GetSet<string, this>;
   letterSpacing: GetSet<number, this>;
+  startOffset: GetSet<number, this>;
   text: GetSet<string, this>;
   data: GetSet<string, this>;
 
@@ -731,3 +734,19 @@ Factory.addGetterSetter(TextPath, 'textDecoration', null);
  * });
  */
 Factory.addGetterSetter(TextPath, 'kerningFunc', null);
+
+/**
+ * get/set kerning function.
+ * @name Konva.TextPath#startOffset
+ * @method
+ * @param {Number} startOffset
+ * @returns {Number}
+ * @example
+ * // get get startOffset
+ * // get line height
+ * var startOffset = shape.startOffset();
+ *
+ * // set the line height
+ * shape.startOffset(2);
+ */
+ Factory.addGetterSetter(TextPath, 'startOffset',  0, getNumberValidator());
