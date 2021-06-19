@@ -241,7 +241,11 @@ export class TextPath extends Shape<TextPathConfig> {
     if (align === 'right') {
       offset = Math.max(0, fullPathWidth - textFullWidth);
     }
-    offset += this.startOffset();
+    
+    const startOffset = this.startOffset()
+    if(startOffset) {
+      offset += startOffset / 100 * fullPathWidth;
+    }
 
     var charArr = stringToArray(this.text());
     var spacesNumber = this.text().split(' ').length - 1;
