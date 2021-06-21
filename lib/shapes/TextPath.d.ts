@@ -48,6 +48,7 @@ export declare class TextPath extends Shape<TextPathConfig> {
     align: GetSet<string, this>;
     letterSpacing: GetSet<number, this>;
     startOffset: GetSet<number, this>;
+    textAnchor: GetSet<string, this>;
     text: GetSet<string, this>;
     data: GetSet<string, this>;
     kerningFunc: GetSet<(leftChar: string, rightChar: string) => number, this>;

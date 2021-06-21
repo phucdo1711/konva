@@ -215,6 +215,7 @@ export class TextPath extends Shape<TextPathConfig> {
     var size = this._getTextSize(this.attrs.text);
     var letterSpacing = this.letterSpacing();
     var align = this.align();
+    const textAnchor = this.textAnchor()  
     var kerningFunc = this.kerningFunc();
 
     this.textWidth = size.width;
@@ -237,9 +238,14 @@ export class TextPath extends Shape<TextPathConfig> {
     var offset = 0;
     if (align === 'center') {
       offset = Math.max(0, fullPathWidth / 2 - textFullWidth / 2);
-    }
-    if (align === 'right') {
+    }else if (align === 'right') {
       offset = Math.max(0, fullPathWidth - textFullWidth);
+    }
+
+    if(textAnchor === 'middle') {
+      offset = -textFullWidth / 2;
+    } else if (textAnchor === 'end'){
+      offset = -textFullWidth;
     }
     
     const startOffset = this.startOffset()
@@ -547,6 +553,7 @@ export class TextPath extends Shape<TextPathConfig> {
   align: GetSet<string, this>;
   letterSpacing: GetSet<number, this>;
   startOffset: GetSet<number, this>;
+  textAnchor: GetSet<string, this>;
   text: GetSet<string, this>;
   data: GetSet<string, this>;
 
@@ -754,3 +761,21 @@ Factory.addGetterSetter(TextPath, 'kerningFunc', null);
  * shape.startOffset(2);
  */
  Factory.addGetterSetter(TextPath, 'startOffset',  0, getNumberValidator());
+
+ /**
+ * get/set textAnchor of text.  Can be 'start', 'middle', 'end' 
+ * @name Konva.TextPath#textAnchor
+ * @method
+ * @param {String} textAnchor
+ * @returns {String}
+ * @example
+ * // get text align
+ * var align = text.align();
+ *
+ * // center text
+ * text.align('center');
+ *
+ * // align text to right
+ * text.align('right');
+ */
+Factory.addGetterSetter(TextPath, 'textAnchor', 'start');

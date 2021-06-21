@@ -14020,6 +14020,7 @@
           var size = this._getTextSize(this.attrs.text);
           var letterSpacing = this.letterSpacing();
           var align = this.align();
+          const textAnchor = this.textAnchor();
           var kerningFunc = this.kerningFunc();
           this.textWidth = size.width;
           this.textHeight = size.height;
@@ -14035,8 +14036,14 @@
           if (align === 'center') {
               offset = Math.max(0, fullPathWidth / 2 - textFullWidth / 2);
           }
-          if (align === 'right') {
+          else if (align === 'right') {
               offset = Math.max(0, fullPathWidth - textFullWidth);
+          }
+          if (textAnchor === 'middle') {
+              offset = -textFullWidth / 2;
+          }
+          else if (textAnchor === 'end') {
+              offset = -textFullWidth;
           }
           const startOffset = this.startOffset();
           if (startOffset) {
@@ -14445,6 +14452,23 @@
    * shape.startOffset(2);
    */
   Factory.addGetterSetter(TextPath, 'startOffset', 0, getNumberValidator());
+  /**
+  * get/set textAnchor of text.  Can be 'start', 'middle', 'end'
+  * @name Konva.TextPath#textAnchor
+  * @method
+  * @param {String} textAnchor
+  * @returns {String}
+  * @example
+  * // get text align
+  * var align = text.align();
+  *
+  * // center text
+  * text.align('center');
+  *
+  * // align text to right
+  * text.align('right');
+  */
+  Factory.addGetterSetter(TextPath, 'textAnchor', 'start');
 
   var EVENTS_NAME = 'tr-konva';
   var ATTR_CHANGE_LIST = [
