@@ -244,7 +244,7 @@ export class TextPath extends Shape<TextPathConfig> {
     
     const startOffset = this.startOffset()
     if(startOffset) {
-      offset += startOffset / 100 * textFullWidth;
+      offset += startOffset / 100 * fullPathWidth;
     }
 
     var charArr = stringToArray(this.text());
