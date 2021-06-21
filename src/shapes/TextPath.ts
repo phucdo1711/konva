@@ -16,6 +16,7 @@ export interface TextPathConfig extends ShapeConfig {
   fontStyle?: string;
   letterSpacing?: number;
   startOffset?: number;
+  textAnchor?: string;
 }
 
 var EMPTY_STRING = '',

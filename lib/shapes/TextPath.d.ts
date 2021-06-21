@@ -8,6 +8,7 @@ export interface TextPathConfig extends ShapeConfig {
     fontStyle?: string;
     letterSpacing?: number;
     startOffset?: number;
+    textAnchor?: string;
 }
 export declare class TextPath extends Shape<TextPathConfig> {
     dummyCanvas: HTMLCanvasElement;
