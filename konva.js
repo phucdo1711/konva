@@ -14040,7 +14040,7 @@
           }
           const startOffset = this.startOffset();
           if (startOffset) {
-              offset += startOffset / 100 * fullPathWidth;
+              offset += startOffset / 100 * textFullWidth;
           }
           var charArr = stringToArray(this.text());
           var spacesNumber = this.text().split(' ').length - 1;
