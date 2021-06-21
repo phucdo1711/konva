@@ -8,7 +8,7 @@
    * Konva JavaScript Framework v8.0.4
    * http://konvajs.org/
    * Licensed under the MIT
-   * Date: Sat Jun 19 2021
+   * Date: Mon Jun 21 2021
    *
    * Original work Copyright (C) 2011 - 2013 by Eric Rowell (KineticJS)
    * Modified work Copyright (C) 2014 - present by Anton Lavrenov (Konva)
@@ -14039,9 +14039,9 @@
               offset = Math.max(0, fullPathWidth - textFullWidth);
           }
           const startOffset = this.startOffset();
-          // if(startOffset) {
-          offset -= startOffset / 100 * fullPathWidth;
-          // }
+          if (startOffset) {
+              offset += startOffset / 100 * fullPathWidth;
+          }
           var charArr = stringToArray(this.text());
           var spacesNumber = this.text().split(' ').length - 1;
           var p0, p1, pathCmd;
