@@ -393,8 +393,8 @@ export abstract class Container<
         var clipX = this.clipX();
         var clipY = this.clipY();
         context.rect(clipX, clipY, clipWidth, clipHeight);
+        context.clip();
       }
-      context.clip();
       m = transform.copy().invert().getMatrix();
       context.transform(m[0], m[1], m[2], m[3], m[4], m[5]);
     }

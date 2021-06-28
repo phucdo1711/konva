@@ -8,7 +8,7 @@
    * Konva JavaScript Framework v8.0.4
    * http://konvajs.org/
    * Licensed under the MIT
-   * Date: Mon Jun 21 2021
+   * Date: Mon Jun 28 2021
    *
    * Original work Copyright (C) 2011 - 2013 by Eric Rowell (KineticJS)
    * Modified work Copyright (C) 2014 - present by Anton Lavrenov (Konva)
@@ -5444,8 +5444,8 @@
                   var clipX = this.clipX();
                   var clipY = this.clipY();
                   context.rect(clipX, clipY, clipWidth, clipHeight);
+                  context.clip();
               }
-              context.clip();
               m = transform.copy().invert().getMatrix();
               context.transform(m[0], m[1], m[2], m[3], m[4], m[5]);
           }
