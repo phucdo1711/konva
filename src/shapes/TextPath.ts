@@ -451,7 +451,7 @@ export class TextPath extends Shape<TextPathConfig> {
     };
 
     // fake search for offset, this is the best approach
-    var testChar = 'C';
+    var testChar = ' ';
     var glyphWidth = that._getTextSize(testChar).width + letterSpacing;
     var lettersInOffset = offset / glyphWidth - 1;
     // the idea is simple

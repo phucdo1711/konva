@@ -8,7 +8,7 @@
    * Konva JavaScript Framework v8.0.4
    * http://konvajs.org/
    * Licensed under the MIT
-   * Date: Mon Jun 28 2021
+   * Date: Sat Jul 31 2021
    *
    * Original work Copyright (C) 2011 - 2013 by Eric Rowell (KineticJS)
    * Modified work Copyright (C) 2014 - present by Anton Lavrenov (Konva)
@@ -14185,7 +14185,7 @@
               }
           };
           // fake search for offset, this is the best approach
-          var testChar = 'C';
+          var testChar = ' ';
           var glyphWidth = that._getTextSize(testChar).width + letterSpacing;
           var lettersInOffset = offset / glyphWidth - 1;
           // the idea is simple
