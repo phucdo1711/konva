@@ -453,7 +453,7 @@ export class TextPath extends Shape<TextPathConfig> {
     // fake search for offset, this is the best approach
     var testChar = ' ';
     var glyphWidth = that._getTextSize(testChar).width + letterSpacing;
-    var lettersInOffset = offset / glyphWidth - 1;
+    var lettersInOffset = offset / glyphWidth ;
     // the idea is simple
     // try to draw testChar until we fill offset
     for (var k = 0; k < lettersInOffset; k++) {

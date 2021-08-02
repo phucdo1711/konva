@@ -5,10 +5,10 @@
 }(this, (function () { 'use strict';
 
   /*
-   * Konva JavaScript Framework v8.0.4
+   * Konva JavaScript Framework v8.0.5
    * http://konvajs.org/
    * Licensed under the MIT
-   * Date: Sat Jul 31 2021
+   * Date: Mon Aug 02 2021
    *
    * Original work Copyright (C) 2011 - 2013 by Eric Rowell (KineticJS)
    * Modified work Copyright (C) 2014 - present by Anton Lavrenov (Konva)
@@ -35,7 +35,7 @@
               : {};
   const Konva$2 = {
       _global: glob,
-      version: '8.0.4',
+      version: '8.0.5',
       isBrowser: detectBrowser(),
       isUnminified: /param/.test(function (param) { }.toString()),
       dblClickWindow: 400,
@@ -14187,7 +14187,7 @@
           // fake search for offset, this is the best approach
           var testChar = ' ';
           var glyphWidth = that._getTextSize(testChar).width + letterSpacing;
-          var lettersInOffset = offset / glyphWidth - 1;
+          var lettersInOffset = offset / glyphWidth;
           // the idea is simple
           // try to draw testChar until we fill offset
           for (var k = 0; k < lettersInOffset; k++) {
